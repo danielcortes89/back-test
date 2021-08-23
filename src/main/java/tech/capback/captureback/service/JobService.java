@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import tech.capback.captureback.model.Job;
 import tech.capback.captureback.repo.JobRepo;
 
+import java.util.List;
+
 @Service
 public class JobService {
     private final JobRepo jobRepo;
@@ -19,7 +21,11 @@ public class JobService {
         return jobRepo.save(job);
     }
 
-    public Job getJobById (Long id){
+    public List<Job> getAllJobs(){
+        return jobRepo.getAll();
+    }
+
+    public static Job getJobById(Long id){
         return jobRepo.findJobById(id);
     }
 }
